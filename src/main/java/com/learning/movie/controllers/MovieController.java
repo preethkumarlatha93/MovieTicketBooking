@@ -22,10 +22,14 @@ public class MovieController {
 	public ResponseEntity<String> addMovie(@RequestBody MovieRequest movieRequest) {
 		try {
             String result = movieService.addMovie(movieRequest);
+            System.out.println("Movie added successfully");
             return new ResponseEntity<>(result, HttpStatus.CREATED);
+
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+
 	}
+
 
 }
